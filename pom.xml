@@ -35,6 +35,7 @@
         <httpclient.version>4.3.5</httpclient.version>
         <jedis.version>2.7.3</jedis.version>
         <hadoop.version>2.6.4</hadoop.version>
+        <hadoop-core.version>1.2.0</hadoop-core.version>
     </properties>
 
     <!-- 通过此元素来管理jar包的版本，让子项目中引用一个依赖而不用显示的列出版本号。
@@ -151,14 +152,70 @@
                 <version>${jedis.version}</version>
             </dependency>
             <!--hadoop-->
+            <!--<dependency>-->
+                <!--<groupId>org.apache.hadoop</groupId>-->
+                <!--<artifactId>hadoop-core</artifactId>-->
+                <!--<version>${hadoop-core.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.apache.hadoop</groupId>-->
+                <!--<artifactId>hadoop-common</artifactId>-->
+                <!--<version>${hadoop.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.apache.hadoop</groupId>-->
+                <!--<artifactId>hadoop-hdfs</artifactId>-->
+                <!--<version>${hadoop.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.apache.hadoop</groupId>-->
+                <!--<artifactId>hadoop-client</artifactId>-->
+                <!--<version>${hadoop.version}</version>-->
+            <!--</dependency>-->
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
-                <artifactId>hadoop-core</artifactId>
+                <artifactId>hadoop-common</artifactId>
+                <version>${hadoop.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>jdk.tools</groupId>
+                        <artifactId>jdk.tools</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-mapreduce-client-core</artifactId>
                 <version>${hadoop.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
-                <artifactId>hadoop-common</artifactId>
+                <artifactId>hadoop-mapreduce-client-common</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-mapreduce-client-jobclient</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-mapreduce-client-app</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-mapreduce-client-shuffle</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-mapreduce-client-hs</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-yarn-common</artifactId>
                 <version>${hadoop.version}</version>
             </dependency>
             <dependency>
@@ -166,26 +223,25 @@
                 <artifactId>hadoop-hdfs</artifactId>
                 <version>${hadoop.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>org.apache.hadoop</groupId>
-                <artifactId>zookeeper</artifactId>
-                <version>3.3.1</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>javax.jms</groupId>
-                        <artifactId>jms</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.sun.jdmk</groupId>
-                        <artifactId>jmxtools</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.sun.jmx</groupId>
-                        <artifactId>jmxri</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.apache.hadoop</groupId>-->
+                <!--<artifactId>zookeeper</artifactId>-->
+                <!--<version>3.3.1</version>-->
+                <!--<exclusions>-->
+                    <!--<exclusion>-->
+                        <!--<groupId>javax.jms</groupId>-->
+                        <!--<artifactId>jms</artifactId>-->
+                    <!--</exclusion>-->
+                    <!--<exclusion>-->
+                        <!--<groupId>com.sun.jdmk</groupId>-->
+                        <!--<artifactId>jmxtools</artifactId>-->
+                    <!--</exclusion>-->
+                    <!--<exclusion>-->
+                        <!--<groupId>com.sun.jmx</groupId>-->
+                        <!--<artifactId>jmxri</artifactId>-->
+                    <!--</exclusion>-->
+                <!--</exclusions>-->
+            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 

@@ -36,8 +36,7 @@ public class HdfsClientDemo {
     @Test
     public void testUpload() throws Exception {
 
-        Thread.sleep(2000);
-        fs.copyFromLocalFile(new Path("G:/access.log"), new Path("/access.log.copy"));
+        fs.copyFromLocalFile(new Path("G:/hadooptest.txt"), new Path("/hadooptest.txt.copy"));
         fs.close();
     }
 
@@ -45,7 +44,7 @@ public class HdfsClientDemo {
     @Test
     public void testDownload() throws Exception {
 
-        fs.copyToLocalFile(new Path("/access.log.copy"), new Path("d:/"));
+        fs.copyToLocalFile(new Path("/hadooptest.txt.copy"), new Path("d:/"));
         fs.close();
     }
 
@@ -72,25 +71,25 @@ public class HdfsClientDemo {
      */
     @Test
     public void deleteTest() throws Exception {
-        boolean delete = fs.delete(new Path("/aaa"), true);//true， 递归删除
+        boolean delete = fs.delete(new Path("/hadooptest.txt.copy"), true);//true， 递归删除
         System.out.println(delete);
     }
 
     @Test
     public void listTest() throws Exception {
-//
-//		FileStatus[] listStatus = fs.listStatus(new Path("/"));
-//		for (FileStatus fileStatus : listStatus) {
-//			System.err.println(fileStatus.getPath()+"================="+fileStatus.toString());
-//		}
-//		//会递归找到所有的文件
-//		RemoteIterator<LocatedFileStatus> listFiles = fs.listFiles(new Path("/"), true);
-//		while(listFiles.hasNext()){
-//			LocatedFileStatus next = listFiles.next();
-//			String name = next.getPath().getName();
-//			Path path = next.getPath();
-//			System.out.println(name + "---" + path.toString());
-//		}
+
+        FileStatus[] listStatus = fs.listStatus(new Path("/"));
+        for (FileStatus fileStatus : listStatus) {
+            System.err.println(fileStatus.getPath() + "=================" + fileStatus.toString());
+        }
+        //会递归找到所有的文件
+        RemoteIterator<LocatedFileStatus> listFiles = fs.listFiles(new Path("/"), true);
+        while (listFiles.hasNext()) {
+            LocatedFileStatus next = listFiles.next();
+            String name = next.getPath().getName();
+            Path path = next.getPath();
+            System.out.println(name + "---" + path.toString());
+        }
     }
 
     public static void main(String[] args) throws Exception {
