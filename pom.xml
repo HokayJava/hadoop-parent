@@ -34,7 +34,7 @@
         <commons-fileupload.version>1.3.1</commons-fileupload.version>
         <httpclient.version>4.3.5</httpclient.version>
         <jedis.version>2.7.3</jedis.version>
-        <hadoop.version>2.6.1</hadoop.version>
+        <hadoop.version>2.6.4</hadoop.version>
     </properties>
 
     <!-- 通过此元素来管理jar包的版本，让子项目中引用一个依赖而不用显示的列出版本号。
@@ -150,40 +150,20 @@
                 <artifactId>jedis</artifactId>
                 <version>${jedis.version}</version>
             </dependency>
-            <!-- apache shiro 相关jar包 -->
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-core</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-web</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-aspectj</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-ehcache</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-spring</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-quartz</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
+            <!--hadoop-->
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-core</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-common</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-hdfs</artifactId>
                 <version>${hadoop.version}</version>
             </dependency>
 
