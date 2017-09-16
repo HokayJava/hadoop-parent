@@ -15,7 +15,7 @@ import java.util.Map.Entry;
  * <p>
  * 也可以在构造客户端fs对象时，通过参数传递进去
  *
- * @author
+ * @author hekai
  */
 public class HdfsClientDemo {
     FileSystem fs = null;
@@ -25,8 +25,8 @@ public class HdfsClientDemo {
     public void init() throws Exception {
 
         conf = new Configuration();
-        conf.set("fs.defaultFS", "hdfs://mini1:9000");
-
+//        conf.set("fs.defaultFS", "hdfs://mini1:9000");
+        conf.set("dfs.replication", "5");
         //拿到一个文件系统操作的客户端实例对象
         /*fs = FileSystem.get(conf);*/
         //可以直接传入 uri和用户身份
